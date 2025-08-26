@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # Spring Boot Application Service
+  app:
+    image: shriyansh1193/docker-demo:latest # Specifies the Dockerfile to use
+    ports:
+      - "8080:8080" # Maps host port 8080 to container port 8080
+    environment:
+      # Database connection details for Spring Boot
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/test?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+    depends_on:
+      - db # Ensures the database service starts before the application service
+    networks:
+      - app-network
+
+  # MySQL Database Service
+  db:
+    image: mysql:8.0 # Uses the official MySQL 8.0 image
+    environment:
+      MYSQL_ROOT_PASSWORD: pass # Root password for MySQL
+      MYSQL_DATABASE: test # Database name to be created
+      MYSQL_USER: admin # User for the database
+      MYSQL_PASSWORD: admin # Password for the database user
+    ports:
+      - "3306:3306" # Maps host port 3306 to container port 3306
+    volumes:
+      - db-data:/var/lib/mysql # Persists database data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  db-data:
