@@ -7,6 +7,9 @@ This rope consist Backend code as well as the Docker-compose for multi app.
 
 Repo for Frontend implementation: https://github.com/shriyansh1193/docker-FE-assignment
 
+Docker image link for FE container: docker pull shriyansh1193/books-app:latest
+Docker image link for BE container: docker pull shriyansh1193/shriyansh1193/docker-demo:latest
+
 
 
 
