@@ -3,6 +3,10 @@
 
 This Project is a collection of API to add, view and delete collection of Books stred in a database
 
+This rope consist Backend code as well as the Docker-compose for multi app.
+
+Repo for Frontend implementation: https://github.com/shriyansh1193/docker-FE-assignment
+
 
 
 
