@@ -2,6 +2,14 @@ version: '3.8'
 
 services:
   # Spring Boot Application Service
+
+  webapp:
+    image: shriyansh1193/books-app
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
   app:
     image: shriyansh1193/docker-demo:latest # Specifies the Dockerfile to use
     ports:
